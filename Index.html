@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Sahan Perera – Designer and front-end developer</title>
+<script>document.documentElement.classList.add('js');try{var s=localStorage.getItem('th');if(s)document.documentElement.dataset.theme=s}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500..800&amp;family=Instrument+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet">
+<style>
+:root{--bg:#eef0f6;--bg2:#e1e5f0;--tx:#0a1033;--mu:#545a78;--ln:rgba(10,16,51,.16);--ac:#2a3bff;--ac2:#ffd23f;--on:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme=light]){--bg:#080c24;--bg2:#10163a;--tx:#eceeff;--mu:#9aa1c8;--ln:rgba(236,238,255,.16);--ac:#7d89ff;--on:#080c24;color-scheme:dark}}
+:root[data-theme=dark]{--bg:#080c24;--bg2:#10163a;--tx:#eceeff;--mu:#9aa1c8;--ln:rgba(236,238,255,.16);--ac:#7d89ff;--on:#080c24;color-scheme:dark}
+*,*::before,*::after{box-sizing:inherit}
+html{scroll-behavior:smooth;scroll-padding-top:calc(72px + env(safe-area-inset-top,0px))}
+body{margin:0;background:var(--bg);color:var(--tx);font:400 16px/1.6 "Instrument Sans",system-ui,-apple-system,"Segoe UI",sans-serif;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+h1,h2,h3,.logo,.big,.stat b{font-family:"Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;margin:0;line-height:1.02;letter-spacing:-.025em}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:3px solid var(--ac);outline-offset:3px}
+.wrap{width:min(1120px,100% - 40px);margin-inline:auto}
+/* nav */
+nav{position:fixed;inset:0 0 auto;z-index:50;padding:calc(12px + env(safe-area-inset-top,0px)) 20px 12px;display:flex;justify-content:space-between;align-items:center}
+nav::before{content:"";position:absolute;inset:0;z-index:-1;backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);background:color-mix(in srgb,var(--bg) 78%,transparent);border-bottom:1px solid var(--ln)}
+#bar{position:absolute;left:0;bottom:-1px;height:3px;width:0;background:var(--ac2)}
+.logo{font-size:1.35rem;font-weight:800}
+.links{display:flex;gap:30px;font-weight:500;align-items:center}
+.links a:not(.btn){position:relative}
+.links a:not(.btn)::after{content:"";position:absolute;left:0;bottom:-3px;height:2px;width:100%;background:var(--ac);transform:scaleX(0);transform-origin:right;transition:transform .35s}
+.links a:not(.btn):hover::after{transform:scaleX(1);transform-origin:left}
+.rt{display:flex;gap:10px}
+.ib{width:40px;height:40px;border-radius:50%;border:1px solid var(--ln);background:transparent;color:var(--tx);font-size:16px;cursor:pointer}
+#mb{display:none}
+/* buttons */
+.btn{display:inline-flex;align-items:center;justify-content:center;padding:14px 26px;border-radius:99px;background:var(--ac);color:var(--on);font:600 15px "Instrument Sans",system-ui,sans-serif;border:1px solid var(--ac);cursor:pointer;transition:transform .2s ease-out,background .3s,color .3s}
+.btn:hover{background:transparent;color:var(--tx)}
+.btn.ghost{background:transparent;color:var(--tx);border-color:var(--ln)}
+.btn.ghost:hover{background:var(--tx);color:var(--bg)}
+/* hero */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;padding:120px 0 70px;overflow:hidden}
+.hero-in{display:grid;grid-template-columns:1.45fr .85fr;gap:40px;align-items:center}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;padding:8px 16px;border:1px solid var(--ln);border-radius:99px;font-size:14px;color:var(--mu);margin:0 0 28px}
+.dot{width:8px;height:8px;border-radius:50%;background:#1fbf6a;animation:ping 2s infinite}
+@keyframes ping{0%{box-shadow:0 0 0 0 #1fbf6a}70%,100%{box-shadow:0 0 0 10px transparent}}
+h1{font-size:clamp(3rem,7.4vw,6.4rem);font-weight:800}
+h1 span.l{display:block}
+.w{display:inline-block;overflow:hidden;vertical-align:top;padding:0 .02em .1em}
+.c{display:inline-block;translate:0 calc(var(--p,0)*-12px);scale:calc(1 + var(--p,0)*.1);color:color-mix(in srgb,var(--ac) calc(var(--p,0)*100%),var(--tx))}
+.l2 .c{color:transparent;-webkit-text-stroke:2px color-mix(in srgb,var(--ac) calc(var(--p,0)*100%),var(--tx))}
+.js .c{transform:translateY(112%);transition:transform .95s cubic-bezier(.2,.8,.2,1) calc(var(--i)*32ms),translate .25s,scale .25s,color .25s,-webkit-text-stroke-color .25s}
+.ready .c{transform:none}
+.lead{max-width:500px;color:var(--mu);font-size:1.1rem;margin:28px 0 34px}
+.cta{display:flex;gap:14px;flex-wrap:wrap}
+.js .eyebrow,.js .lead,.js .cta{opacity:0;transform:translateY(18px);transition:opacity .9s .9s,transform .9s .9s}
+.ready .eyebrow,.ready .lead,.ready .cta{opacity:1;transform:none}
+.stack{position:relative;width:100%;max-width:440px;aspect-ratio:1;justify-self:center}
+.disc{position:absolute;inset:6%;border-radius:50%;background:var(--ac2);animation:fl 9s ease-in-out infinite;--r:0deg}
+.s{position:absolute;width:70%;aspect-ratio:10/7;object-fit:cover;border-radius:18px;border:1px solid var(--ln);box-shadow:0 26px 50px -26px rgba(8,12,36,.55);transform:rotate(var(--r));animation:fl 7s ease-in-out infinite;transition:translate .4s ease-out;background:var(--bg2)}
+.s1{top:0;left:0;--r:-6deg}.s2{top:32%;right:0;--r:5deg;animation-delay:-2s}.s3{bottom:0;left:8%;--r:-2deg;animation-delay:-4s}
+@keyframes fl{50%{transform:rotate(var(--r)) translateY(-14px)}}
+/* marquee */
+.marq{overflow:hidden;padding:24px 0;background:var(--ac);color:var(--on)}
+.track{display:flex;width:max-content;animation:mq 30s linear infinite;font:800 clamp(1.8rem,4.5vw,3rem)/1 "Bricolage Grotesque","Arial Narrow",system-ui,sans-serif;white-space:nowrap}
+.track span{display:flex;align-items:center}
+.track span::after{content:"";width:.3em;height:.3em;border-radius:50%;background:var(--ac2);margin:0 .9em}
+.track span:nth-child(even){color:transparent;-webkit-text-stroke:1.5px var(--on)}
+@keyframes mq{to{transform:translateX(-50%)}}
+/* sections */
+.sec{padding:110px 0}
+h2{font-size:clamp(2.2rem,5vw,3.8rem);font-weight:700;margin:0 0 44px;max-width:720px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:44px 36px}
+.pc:nth-child(even){margin-top:80px}
+.card{display:block;transition:transform .25s ease-out;will-change:transform}
+.thumb{border-radius:20px;overflow:hidden;aspect-ratio:10/7;background:var(--bg2);border:1px solid var(--ln)}
+.thumb img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .9s cubic-bezier(.2,.8,.2,1)}
+.js .pc .thumb{clip-path:inset(0 0 100% 0);transition:clip-path 1.1s cubic-bezier(.7,0,.2,1)}
+.js .pc .thumb img{transform:scale(1.3)}
+.pc.in .thumb{clip-path:inset(0)}
+.pc.in .thumb img{transform:none}
+.pc.in .card:hover .thumb img{transform:scale(1.07)}
+.meta{display:flex;justify-content:space-between;align-items:baseline;margin:18px 2px 0}
+.card h3{font-size:1.7rem;font-weight:700}
+.yr{color:var(--mu);font-size:14px}
+.card p{color:var(--mu);margin:8px 2px 14px;max-width:46ch}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chips span{padding:4px 12px;border:1px solid var(--ln);border-radius:99px;font-size:13px}
+.about{display:grid;grid-template-columns:1.1fr 1fr;gap:56px;align-items:start}
+.about p{font-size:1.25rem;color:var(--mu);max-width:48ch;margin:0}
+.stats{display:grid;grid-template-columns:1fr 1fr;border:1px solid var(--ln);border-radius:20px;overflow:hidden}
+.stat{padding:30px 26px;border:0 solid var(--ln)}
+.stat:nth-child(odd){border-right-width:1px}.stat:nth-child(-n+2){border-bottom-width:1px}
+.stat b{display:block;font-size:3.4rem;font-weight:800;color:var(--ac)}
+.stat span{color:var(--mu);font-size:15px}
+.craft{background:var(--bg2)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:56px}
+h3.sub{font-size:1.5rem;margin-bottom:24px}
+.sk{margin-bottom:22px}
+.sk div{display:flex;justify-content:space-between;font-weight:500;margin-bottom:8px}
+.bar{height:8px;border-radius:99px;background:var(--ln);overflow:hidden}
+.bar i{display:block;height:100%;width:0;border-radius:99px;background:var(--ac);transition:width 1.4s cubic-bezier(.2,.8,.2,1)}
+.in .bar i{width:var(--w)}
+.tl{list-style:none;margin:0;padding:0 0 0 30px;border-left:2px solid var(--ln)}
+.tl li{position:relative;padding-bottom:30px}
+.tl li::before{content:"";position:absolute;left:-39px;top:6px;width:16px;height:16px;border-radius:50%;background:var(--bg2);border:3px solid var(--ac)}
+.tl small{color:var(--mu);font-size:14px}
+.tl h4{margin:2px 0 4px;font-size:1.15rem}
+.tl p{margin:0;color:var(--mu)}
+.tools{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.tools span{padding:6px 14px;border-radius:99px;background:var(--tx);color:var(--bg);font-size:14px;font-weight:500}
+/* contact */
+.big{font-size:clamp(2.6rem,9vw,7.2rem);font-weight:800;margin-bottom:26px}
+.mail{display:inline-block;font:700 clamp(1.3rem,3.4vw,2.2rem)/1.2 "Bricolage Grotesque",system-ui,sans-serif;background:linear-gradient(var(--ac2),var(--ac2)) 0 100%/100% 6px no-repeat;transition:background-size .4s;padding-bottom:4px}
+.mail:hover{background-size:100% 100%;color:#0a1033}
+form{display:grid;gap:14px;margin-top:56px;max-width:640px}
+.f2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+input,textarea{width:100%;padding:16px 18px;border-radius:14px;border:1px solid var(--ln);background:transparent;color:var(--tx);font:inherit;transition:border-color .25s,box-shadow .25s}
+input:focus,textarea:focus{outline:0;border-color:var(--ac);box-shadow:0 0 0 4px color-mix(in srgb,var(--ac) 22%,transparent)}
+#ok{margin:0;color:var(--mu);min-height:1.6em}
+footer{padding:30px 0 40px;border-top:1px solid var(--ln);color:var(--mu);font-size:14px}
+footer .wrap{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+footer .dev{color:var(--tx);font-weight:600;border-bottom:2px solid var(--ac2);transition:color .25s}
+footer .dev:hover{color:var(--ac)}
+/* loader + cursor */
+#pre{display:none}
+.js #pre{position:fixed;inset:0;z-index:100;display:grid;place-items:center;text-align:center;background:var(--ac);color:var(--on);transition:transform 1.1s cubic-bezier(.77,0,.18,1),border-radius 1.1s;font-family:"Bricolage Grotesque",system-ui,sans-serif}
+#pre b{font-size:clamp(5rem,20vw,11rem);font-weight:800;line-height:1}
+#pre p{margin:8px 0 0;font-size:1.1rem}
+#pre.out{transform:translateY(-101%);border-radius:0 0 50% 50%/0 0 14% 14%;pointer-events:none}
+.cur,.cur2{position:fixed;left:0;top:0;pointer-events:none;z-index:99;border-radius:50%;display:none}
+.fine .cur,.fine .cur2{display:block}
+.fine,.fine a,.fine button{cursor:none}
+.cur{width:8px;height:8px;margin:-4px 0 0 -4px;background:var(--ac)}
+.cur2{width:38px;height:38px;margin:-19px 0 0 -19px;border:1.5px solid var(--ac);transition:width .25s,height .25s,margin .25s,background .25s}
+.cur2.hv{width:72px;height:72px;margin:-36px 0 0 -36px;background:color-mix(in srgb,var(--ac) 16%,transparent)}
+@media(max-width:820px){
+.hero-in,.about,.two,.grid2{grid-template-columns:1fr}
+.pc:nth-child(even){margin-top:0}
+.stack{max-width:340px}
+.sec{padding:80px 0}
+#mb{display:inline-grid;place-items:center}
+.links{position:fixed;inset:0;z-index:-1;flex-direction:column;justify-content:center;gap:22px;background:var(--bg);font:800 2.4rem "Bricolage Grotesque",system-ui,sans-serif;transform:translateY(-100%);transition:transform .6s cubic-bezier(.77,0,.18,1)}
+.menu .links{transform:none}
+.links .btn{font-size:1rem}
+.f2{grid-template-columns:1fr}
+}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;transition-delay:0s!important;scroll-behavior:auto!important}}
+</style>
+</head>
+<body>
+<div id="pre"><div><b id="pc">0</b><p>Sahan Perera, portfolio 2026</p></div></div>
+<i class="cur"></i><i class="cur2"></i>
+
+<nav>
+  <a class="logo" href="#top">sahan.studio</a>
+  <div class="links" id="lk">
+    <a href="#work">Work</a><a href="#about">About</a><a href="#craft">Craft</a>
+    <a class="btn mag" href="#contact">Hire me</a>
+  </div>
+  <div class="rt"><button class="ib" id="th" aria-label="Switch light or dark theme">☾</button><button class="ib" id="mb" aria-label="Open menu">☰</button></div>
+  <span id="bar"></span>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap hero-in">
+    <div>
+      <p class="eyebrow"><span class="dot"></span>Booking projects for January 2027</p>
+      <h1 id="h1"><span class="l l1">I design it.</span><span class="l l2">I build it.</span></h1>
+      <p class="lead">I’m Sahan, a designer and front-end developer in Colombo. I make fast, careful websites for brands that sweat the details.</p>
+      <div class="cta"><a class="btn mag" href="#work">See my work</a><a class="btn ghost mag" href="#contact">Start a project</a></div>
+    </div>
+    <div class="stack" aria-hidden="true"><i class="disc"></i><img class="s s1" alt=""><img class="s s2" alt=""><img class="s s3" alt=""></div>
+  </div>
+</header>
+
+<div class="marq" aria-hidden="true"><div class="track" id="tr"><span>Brand identity</span><span>Web design</span><span>Front-end</span><span>Motion</span><span>Design systems</span><span>Prototyping</span></div></div>
+
+<section class="sec" id="work">
+  <div class="wrap"><h2>Selected work from the last two years</h2><div class="grid2" id="wk"></div></div>
+</section>
+
+<section class="sec" id="about" style="padding-top:0">
+  <div class="wrap about">
+    <div><h2>Eight years of turning rough ideas into interfaces people enjoy.</h2><p>I start in Figma, finish in code, and stay until the details are right. Clients hire me for the whole path from first sketch to a live, tested site.</p></div>
+    <div class="stats io">
+      <div class="stat"><b data-n="8">0</b><span>Years of practice</span></div>
+      <div class="stat"><b data-n="64">0</b><span>Projects shipped</span></div>
+      <div class="stat"><b data-n="37">0</b><span>Happy clients</span></div>
+      <div class="stat"><b data-n="5">0</b><span>Design awards</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="sec craft" id="craft">
+  <div class="wrap two">
+    <div class="io">
+      <h3 class="sub">What I’m good at</h3>
+      <div class="sk"><div><span>Interface design</span><span>96%</span></div><div class="bar"><i style="--w:96%"></i></div></div>
+      <div class="sk"><div><span>Front-end development</span><span>93%</span></div><div class="bar"><i style="--w:93%"></i></div></div>
+      <div class="sk"><div><span>Motion and animation</span><span>88%</span></div><div class="bar"><i style="--w:88%"></i></div></div>
+      <div class="sk"><div><span>React and Next.js</span><span>84%</span></div><div class="bar"><i style="--w:84%"></i></div></div>
+      <div class="tools"><span>Figma</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>React</span><span>GSAP</span><span>Node</span></div>
+    </div>
+    <div>
+      <h3 class="sub">Where I’ve worked</h3>
+      <ol class="tl">
+        <li><small>2023 to now</small><h4>Lead designer, Northwind Labs</h4><p>Own design and front-end for a team of eleven.</p></li>
+        <li><small>2020 to 2023</small><h4>Front-end developer, Pixelhouse</h4><p>Shipped 30 client sites and the agency’s first design system.</p></li>
+        <li><small>2018 to 2020</small><h4>Junior designer, Studio Kandy</h4><p>Branding, print, and my first real websites.</p></li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<section class="sec" id="contact">
+  <div class="wrap">
+    <h2 class="big">Have a project in mind?</h2>
+    <a class="mail" href="mailto:hello@sahan.studio">hello@sahan.studio</a>
+    <form id="f">
+      <div class="f2"><input name="n" placeholder="Your name" aria-label="Your name" required><input name="e" type="email" placeholder="Your email" aria-label="Your email" required></div>
+      <textarea name="m" rows="4" placeholder="Tell me about the project" aria-label="Project details" required></textarea>
+      <div><button class="btn mag" type="submit">Send message</button></div>
+      <p id="ok" role="status"></p>
+    </form>
+  </div>
+</section>
+
+<footer><div class="wrap"><span>© 2026 Sahan Perera. Demo portfolio with placeholder content.</span><span>Developed by <a class="dev" href="https://www.fiverr.com/fr_kaveen" target="_blank" rel="noopener">Kaveen Sandeepa</a></span><a href="#top">Back to top</a></div></footer>
+
+<script>
+const $=(s,r=document)=>r.querySelector(s),$$=(s,r=document)=>[...r.querySelectorAll(s)];
+const R=document.documentElement;
+
+/* demo images: generated SVG mock screens */
+const P=[['#2a3bff','#ffd23f'],['#c2410c','#fde68a'],['#0f766e','#a7f3d0'],['#7c3aed','#fbcfe8']];
+function art(i){const[a,b]=P[i%4];const s=`<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 560"><rect width="800" height="560" fill="${a}"/><circle cx="${620-i*90}" cy="${120+i*40}" r="170" fill="${b}"/><circle cx="90" cy="520" r="150" fill="#000" opacity=".16"/><g transform="translate(100 84)"><rect width="600" height="396" rx="22" fill="#fff"/><rect width="600" height="48" rx="22" fill="#0a1033" opacity=".07"/><circle cx="28" cy="24" r="6" fill="#ff5f57"/><circle cx="50" cy="24" r="6" fill="#febc2e"/><circle cx="72" cy="24" r="6" fill="#28c840"/><rect x="36" y="82" width="${200+i*28}" height="28" rx="14" fill="${a}"/><rect x="36" y="128" width="390" height="14" rx="7" fill="#0a1033" opacity=".2"/><rect x="36" y="154" width="310" height="14" rx="7" fill="#0a1033" opacity=".12"/><rect x="36" y="206" width="150" height="140" rx="16" fill="${a}"/><rect x="206" y="206" width="150" height="140" rx="16" fill="${b}"/><rect x="376" y="206" width="188" height="140" rx="16" fill="#0a1033" opacity=".08"/><path d="M394 322L428 280L462 302L500 244L544 266" stroke="${a}" stroke-width="7" fill="none" stroke-linecap="round" stroke-linejoin="round"/></g></svg>`;return'data:image/svg+xml;charset=utf-8,'+encodeURIComponent(s)}
+$$('.s').forEach((im,i)=>im.src=art([0,2,3][i]));
+
+/* demo data */
+const W=[
+['Lumen','2026','A money dashboard that turns messy invoices and expenses into one calm weekly view.',['Product design','React']],
+['Ceylon Roast','2026','A storefront for a Kandy roastery, with a subscription checkout that converts on a phone.',['E-commerce','Branding']],
+['Nimbus','2025','One component library shared by four product teams, documented and shipped in six weeks.',['Design system','Storybook']],
+['Wanderly','2025','A trip planner that builds a day-by-day route from three taps.',['Mobile app','Prototype']]];
+$('#wk').innerHTML=W.map((w,i)=>`<div class="io pc"><a class="card" href="#contact"><div class="thumb"><img alt="${w[0]} project preview" src="${art(i)}"></div><div class="meta"><h3>${w[0]}</h3><span class="yr">${w[1]}</span></div><p>${w[2]}</p><div class="chips">${w[3].map(t=>`<span>${t}</span>`).join('')}</div></a></div>`).join('');
+
+/* marquee needs a second copy for a seamless loop */
+$('#tr').innerHTML+=$('#tr').innerHTML;
+
+/* headline: split into letters */
+(function(){const h=$('#h1');h.setAttribute('aria-label',h.textContent);let i=0;
+(function walk(n){[...n.childNodes].forEach(c=>{if(c.nodeType===3){const f=document.createDocumentFragment();c.textContent.split(/(\s+)/).forEach(w=>{if(!w.trim()){f.append(w);return}const s=document.createElement('span');s.className='w';s.setAttribute('aria-hidden','true');[...w].forEach(ch=>{const k=document.createElement('span');k.className='c';k.textContent=ch;k.style.setProperty('--i',i++);s.append(k)});f.append(s)});c.replaceWith(f)}else if(c.nodeType===1)walk(c)})})(h)})();
+
+/* loader, then the one big entrance */
+const pc=$('#pc');let n=0;
+const t=setInterval(()=>{n=Math.min(100,n+Math.ceil(Math.random()*9));pc.textContent=n;if(n>=100){clearInterval(t);setTimeout(()=>{$('#pre').classList.add('out');document.body.classList.add('ready')},250)}},45);
+
+/* hero: letters and images react to the pointer */
+const hero=$('.hero'),cs=$$('.c'),ss=$$('.s');
+hero.addEventListener('pointermove',e=>{
+  cs.forEach(c=>{const r=c.getBoundingClientRect(),d=Math.hypot(e.clientX-r.left-r.width/2,e.clientY-r.top-r.height/2);c.style.setProperty('--p',Math.max(0,1-d/150).toFixed(2))});
+  const x=e.clientX/innerWidth-.5,y=e.clientY/innerHeight-.5;
+  ss.forEach((s,i)=>s.style.translate=`${-x*(24+i*18)}px ${-y*(24+i*18)}px`)});
+hero.addEventListener('pointerleave',()=>{cs.forEach(c=>c.style.setProperty('--p',0));ss.forEach(s=>s.style.translate='')});
+
+/* reveal on scroll: image wipes, counters, skill bars */
+function count(el){const to=+el.dataset.n,t0=performance.now();(function f(t){const p=Math.min((t-t0)/1600,1);el.textContent=Math.round(to*(1-Math.pow(1-p,3)));if(p<1)requestAnimationFrame(f)})(t0)}
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');$$('[data-n]',e.target).forEach(count);io.unobserve(e.target)}}),{threshold:.2});
+$$('.io').forEach(el=>io.observe(el));
+
+/* scroll progress */
+const bar=$('#bar');
+function onS(){const h=R.scrollHeight-innerHeight;bar.style.width=(h>0?scrollY/h*100:0)+'%'}
+addEventListener('scroll',onS,{passive:true});onS();
+
+/* theme + menu */
+const th=$('#th');
+const isDark=()=>R.dataset.theme?R.dataset.theme==='dark':matchMedia('(prefers-color-scheme:dark)').matches;
+const sync=()=>th.textContent=isDark()?'☀':'☾';sync();
+th.onclick=()=>{const v=isDark()?'light':'dark';R.dataset.theme=v;try{localStorage.setItem('th',v)}catch(e){}sync()};
+$('#mb').onclick=()=>document.body.classList.toggle('menu');
+$$('#lk a').forEach(a=>a.addEventListener('click',()=>document.body.classList.remove('menu')));
+
+/* desktop-only touches: cursor, magnetic buttons, card tilt */
+if(matchMedia('(pointer:fine)').matches){
+  R.classList.add('fine');
+  const d=$('.cur'),r=$('.cur2');let mx=0,my=0,rx=0,ry=0;
+  addEventListener('pointermove',e=>{mx=e.clientX;my=e.clientY;d.style.transform=`translate(${mx}px,${my}px)`});
+  (function loop(){rx+=(mx-rx)*.16;ry+=(my-ry)*.16;r.style.transform=`translate(${rx}px,${ry}px)`;requestAnimationFrame(loop)})();
+  document.addEventListener('mouseover',e=>r.classList.toggle('hv',!!e.target.closest('a,button')));
+  $$('.mag').forEach(b=>{b.addEventListener('mousemove',e=>{const q=b.getBoundingClientRect();b.style.transform=`translate(${(e.clientX-q.left-q.width/2)*.25}px,${(e.clientY-q.top-q.height/2)*.35}px)`});b.addEventListener('mouseleave',()=>b.style.transform='')});
+  $$('.card').forEach(c=>{c.addEventListener('mousemove',e=>{const q=c.getBoundingClientRect(),x=(e.clientX-q.left)/q.width-.5,y=(e.clientY-q.top)/q.height-.5;c.style.transform=`perspective(900px) rotateY(${x*8}deg) rotateX(${-y*8}deg)`});c.addEventListener('mouseleave',()=>c.style.transform='')});
+}
+
+/* demo contact form: nothing is sent anywhere */
+$('#f').addEventListener('submit',e=>{e.preventDefault();const b=e.target.querySelector('button');b.textContent='Sending…';setTimeout(()=>{b.textContent='Send message';e.target.reset();$('#ok').textContent='Thanks! This is a demo form, so nothing was actually sent.'},900)});
+</script>
+</body>
+</html>
